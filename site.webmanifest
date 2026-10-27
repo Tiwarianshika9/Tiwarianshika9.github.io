@@ -1,0 +1,22 @@
+{
+  "name": "Anshika Tiwari \u2014 Developer Portfolio",
+  "short_name": "Anshika Tiwari",
+  "description": "Anshika Tiwari is a Full Stack Laravel, Fintech & API Developer in Noida with 2.5+ years of experience in payments, travel systems, API Integration and React.js.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#07090f",
+  "theme_color": "#07090f",
+  "icons": [
+    {
+      "src": "/assets/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/profile-avatar.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

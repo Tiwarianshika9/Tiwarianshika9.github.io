@@ -1,0 +1,3493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description"
+      content="Anshika Tiwari — Full Stack Laravel, Fintech & API Developer">
+
+<title>Anshika Tiwari | Full Stack Developer</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet">
+
+<style>
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+:root{
+    --bg:#080713;
+    --bg2:#0d0a1d;
+
+    --panel:#100d22;
+    --panel2:#14102b;
+
+    --line:#29234a;
+    --line2:#393064;
+
+    --text:#f7f4ff;
+    --muted:#a29bbd;
+    --muted2:#77708f;
+
+    --purple:#9c7cff;
+    --purple2:#c4afff;
+
+    --blue:#62c9ff;
+    --cyan:#63efdb;
+
+    --green:#61e7a7;
+    --pink:#ff7298;
+
+    --shadow:
+        0 30px 80px rgba(0,0,0,.45);
+
+    --radius:24px;
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    min-height:100vh;
+    color:var(--text);
+
+    background:
+        radial-gradient(
+            circle at 5% 5%,
+            rgba(117,75,255,.15),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 90% 15%,
+            rgba(62,149,255,.08),
+            transparent 25%
+        ),
+
+        linear-gradient(
+            135deg,
+            #080713,
+            #0b0919 50%,
+            #070610
+        );
+
+    font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        sans-serif;
+}
+
+body::before{
+    content:"";
+
+    position:fixed;
+    inset:0;
+
+    pointer-events:none;
+
+    opacity:.20;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        );
+
+    background-size:44px 44px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black,
+            transparent 92%
+        );
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+button{
+    font-family:inherit;
+}
+
+img{
+    max-width:100%;
+}
+
+
+/* =========================================================
+   MAIN LAYOUT
+========================================================= */
+
+.layout{
+    width:100%;
+    max-width:1480px;
+
+    margin:auto;
+
+    padding:22px;
+
+    display:grid;
+
+    grid-template-columns:
+        270px
+        minmax(0,1fr);
+
+    gap:24px;
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.sidebar{
+
+    position:sticky;
+    top:22px;
+
+    height:
+        calc(100vh - 44px);
+
+    min-height:680px;
+
+    padding:16px;
+
+    border:
+        1px solid var(--line);
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    display:flex;
+    flex-direction:column;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(21,16,45,.97),
+            rgba(8,7,21,.98)
+        );
+
+    box-shadow:
+        var(--shadow),
+        inset 0 1px rgba(255,255,255,.04);
+}
+
+
+/* =========================================================
+   PROFILE BOX
+========================================================= */
+
+.profile-box{
+
+    padding:13px;
+
+    border:
+        1px solid #362d61;
+
+    border-radius:22px;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(157,117,255,.15),
+            transparent 55%
+        ),
+
+        rgba(12,9,28,.65);
+}
+
+
+/* =========================================================
+   PROFILE IMAGE AREA
+========================================================= */
+
+.avatar-wrap{
+
+    height:190px;
+
+    position:relative;
+
+    display:grid;
+    place-items:center;
+
+    overflow:hidden;
+
+    border:
+        1px solid #32285c;
+
+    border-radius:21px;
+
+    background:
+
+        radial-gradient(
+            circle at center,
+            rgba(132,87,255,.15),
+            transparent 60%
+        );
+}
+
+
+/* outer circle */
+
+.avatar-wrap::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:178px;
+    height:178px;
+
+    border:
+        1px dashed rgba(146,113,255,.30);
+
+    border-radius:50%;
+
+    animation:
+        rotateCircle 18s linear infinite;
+}
+
+@keyframes rotateCircle{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+
+/* image container */
+
+.avatar{
+
+    width:105px;
+    height:105px;
+
+    position:relative;
+    z-index:2;
+
+    overflow:hidden;
+
+    display:grid;
+    place-items:center;
+
+    border:
+        3px solid rgba(207,188,255,.65);
+
+    border-radius:30px;
+
+    transform:rotate(-4deg);
+
+    background:
+        linear-gradient(
+            145deg,
+            #d9c8ff,
+            #8969ef
+        );
+
+    box-shadow:
+        0 20px 50px rgba(118,75,255,.35),
+        0 0 0 8px rgba(142,105,255,.05);
+}
+
+.avatar img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+    transform:rotate(4deg) scale(1.04);
+}
+
+.avatar-fallback{
+
+    font:
+        800 29px Georgia,serif;
+
+    color:#080611;
+}
+
+
+/* developer badge */
+
+.dev-tag{
+
+    position:absolute;
+
+    right:9px;
+    bottom:9px;
+
+    padding:6px 9px;
+
+    border:
+        1px solid #19674f;
+
+    border-radius:8px;
+
+    background:#06130f;
+
+    color:var(--green);
+
+    font:
+        500 10px
+        "JetBrains Mono",
+        monospace;
+}
+
+
+/* name */
+
+.name{
+
+    margin:
+        16px 2px 4px;
+
+    font-size:18px;
+
+    font-weight:800;
+
+    letter-spacing:-.3px;
+}
+
+.role{
+
+    color:var(--muted);
+
+    font-size:11.5px;
+
+    line-height:1.7;
+}
+
+.location{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    margin-top:9px;
+
+    color:#9189aa;
+
+    font:
+        10px
+        "JetBrains Mono",
+        monospace;
+}
+
+.location b{
+
+    color:var(--purple2);
+
+    font-size:12px;
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+.divider{
+
+    width:100%;
+    height:1px;
+
+    background:var(--line);
+
+    margin:
+        14px 0
+        10px;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+nav{
+
+    display:grid;
+
+    gap:5px;
+
+    overflow:auto;
+}
+
+nav a{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:
+        10px 11px;
+
+    border:
+        1px solid transparent;
+
+    border-radius:12px;
+
+    color:#918aa9;
+
+    font-size:12px;
+
+    transition:
+        .2s ease;
+}
+
+nav a:hover{
+
+    color:#f3efff;
+
+    background:#17132d;
+
+    border-color:#2b2352;
+
+    transform:translateX(2px);
+}
+
+nav a.active{
+
+    color:#fff;
+
+    background:
+        linear-gradient(
+            90deg,
+            #1d1839,
+            #17132d
+        );
+
+    border-color:#382c70;
+
+    box-shadow:
+        inset 3px 0 var(--purple);
+}
+
+.nav-icon{
+
+    width:16px;
+
+    text-align:center;
+
+    color:#a991ff;
+
+    font-size:14px;
+}
+
+
+/* =========================================================
+   CONNECT
+========================================================= */
+
+.connect{
+
+    margin-top:auto;
+
+    padding:
+        14px 4px
+        2px;
+}
+
+.connect-title{
+
+    margin-bottom:9px;
+
+    color:#aaa3bd;
+
+    font-size:11px;
+}
+
+.socials{
+
+    display:flex;
+
+    gap:8px;
+}
+
+.social{
+
+    width:38px;
+    height:38px;
+
+    display:grid;
+    place-items:center;
+
+    border:
+        1px solid #2a244b;
+
+    border-radius:12px;
+
+    background:#121029;
+
+    color:#b9a8ff;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    transition:.2s;
+}
+
+.social:hover{
+
+    border-color:#5844a1;
+
+    color:white;
+
+    transform:
+        translateY(-3px);
+}
+
+.available{
+
+    margin-top:14px;
+
+    padding:
+        8px 11px;
+
+    border:
+        1px solid #245f51;
+
+    border-radius:20px;
+
+    background:#071712;
+
+    color:#64e8ac;
+
+    font-size:10px;
+
+    text-align:center;
+}
+
+.dot{
+
+    display:inline-block;
+
+    width:7px;
+    height:7px;
+
+    margin-right:7px;
+
+    border-radius:50%;
+
+    background:#4ff0a0;
+
+    box-shadow:
+        0 0 12px #4ff0a0;
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+main{
+    min-width:0;
+}
+
+
+/* =========================================================
+   TERMINAL
+========================================================= */
+
+.terminal{
+
+    margin-bottom:22px;
+
+    overflow:hidden;
+
+    border:
+        1px solid #26365f;
+
+    border-radius:25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(8,17,43,.97),
+            rgba(8,10,29,.97)
+        );
+
+    box-shadow:var(--shadow);
+}
+
+.terminal-top,
+.section-head{
+
+    height:43px;
+
+    display:flex;
+
+    align-items:center;
+
+    padding:
+        0 18px;
+
+    gap:7px;
+
+    border-bottom:
+        1px solid #1b2b50;
+
+    color:#777fa1;
+
+    font:
+        10px
+        "JetBrains Mono",
+        monospace;
+}
+
+.traffic{
+
+    width:9px;
+    height:9px;
+
+    display:block;
+
+    border-radius:50%;
+
+    background:#ff6f8c;
+}
+
+.traffic.y{
+    background:#f3cf54;
+}
+
+.traffic.g{
+    background:#50dfb0;
+}
+
+.path{
+
+    margin-left:28px;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+
+    padding:
+        42px;
+
+    display:grid;
+
+    grid-template-columns:
+        1.05fr
+        .95fr;
+
+    gap:20px;
+
+    align-items:center;
+}
+
+.eyebrow{
+
+    display:inline-flex;
+
+    padding:
+        7px 12px;
+
+    border:
+        1px solid #1b8c75;
+
+    border-radius:18px;
+
+    background:#061712;
+
+    color:#62efc4;
+
+    font:
+        500 10px
+        "JetBrains Mono",
+        monospace;
+}
+
+h1{
+
+    margin:
+        21px 0 18px;
+
+    font-size:
+        clamp(40px,5vw,66px);
+
+    line-height:.98;
+
+    letter-spacing:-3px;
+}
+
+h1 span{
+
+    display:block;
+
+    background:
+        linear-gradient(
+            90deg,
+            #62d7ff,
+            #9c79ff,
+            #d09cff
+        );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
+}
+
+.hero p{
+
+    max-width:620px;
+
+    color:#aaa6c2;
+
+    line-height:1.8;
+
+    font-size:13px;
+}
+
+.buttons{
+
+    display:flex;
+
+    gap:10px;
+
+    margin-top:23px;
+
+    flex-wrap:wrap;
+}
+
+.btn{
+
+    padding:
+        12px 17px;
+
+    border:
+        1px solid #4331a0;
+
+    border-radius:12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #9a6cff,
+            #6d51d9
+        );
+
+    color:#fff;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    box-shadow:
+        0 12px 30px
+        rgba(117,78,244,.22);
+
+    transition:.2s;
+}
+
+.btn:hover{
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 18px 35px
+        rgba(117,78,244,.32);
+}
+
+.btn.alt{
+
+    background:transparent;
+
+    border-color:#4d3f91;
+
+    box-shadow:none;
+}
+
+
+/* =========================================================
+   HERO VISUAL
+========================================================= */
+
+.visual{
+
+    min-height:290px;
+
+    position:relative;
+
+    display:grid;
+
+    place-items:center;
+}
+
+.orb{
+
+    position:absolute;
+
+    width:280px;
+    height:280px;
+
+    border:
+        1px solid
+        rgba(97,113,255,.26);
+
+    border-radius:50%;
+
+    box-shadow:
+        0 0 80px
+        rgba(83,98,255,.12)
+        inset;
+}
+
+.orb::before,
+.orb::after{
+
+    content:"";
+
+    position:absolute;
+
+    border:
+        1px solid
+        rgba(92,237,221,.18);
+
+    border-radius:50%;
+
+    inset:25px;
+
+    transform:
+        rotate(48deg);
+}
+
+.orb::after{
+
+    inset:55px;
+
+    transform:
+        rotate(-42deg);
+}
+
+
+/* laptop */
+
+.laptop{
+
+    width:230px;
+    height:142px;
+
+    position:relative;
+    z-index:2;
+
+    border:
+        1px solid #4e4bb1;
+
+    border-radius:15px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #111d44,
+            #090d22
+        );
+
+    transform:
+        perspective(700px)
+        rotateX(7deg)
+        rotateY(-15deg);
+
+    box-shadow:
+        0 25px 60px
+        rgba(54,59,201,.3);
+}
+
+.screen-code{
+
+    padding:18px;
+
+    font:
+        10px/1.75
+        "JetBrains Mono",
+        monospace;
+
+    color:#65d5ff;
+}
+
+.screen-code b{
+    color:#d19aff;
+}
+
+.screen-code i{
+
+    color:#63efc4;
+
+    font-style:normal;
+}
+
+.base{
+
+    position:absolute;
+
+    width:260px;
+    height:12px;
+
+    left:-16px;
+    bottom:-13px;
+
+    border-radius:
+        0 0 30px 30px;
+
+    background:#151a39;
+
+    border:
+        1px solid #414586;
+}
+
+.float{
+
+    position:absolute;
+
+    z-index:3;
+
+    padding:
+        9px 11px;
+
+    border:
+        1px solid #3c3180;
+
+    border-radius:12px;
+
+    background:
+        rgba(15,12,42,.94);
+
+    font-size:11px;
+
+    font-weight:700;
+
+    box-shadow:
+        0 14px 35px
+        rgba(0,0,0,.3);
+}
+
+.f1{
+
+    top:28px;
+    right:8px;
+
+    color:var(--pink);
+}
+
+.f2{
+
+    bottom:36px;
+    left:5px;
+
+    color:var(--cyan);
+}
+
+.f3{
+
+    top:105px;
+    right:-3px;
+
+    color:#ad96ff;
+}
+
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.stats{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    margin:
+        0 25px
+        22px;
+
+    overflow:hidden;
+
+    border:
+        1px solid #20355d;
+
+    border-radius:15px;
+
+    background:
+        rgba(8,13,32,.55);
+}
+
+.stat{
+
+    padding:16px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    border-right:
+        1px solid #20304f;
+}
+
+.stat:last-child{
+    border-right:0;
+}
+
+.stat-icon{
+
+    width:34px;
+    height:34px;
+
+    flex:none;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:50%;
+
+    background:#10183b;
+
+    color:#8eb8ff;
+}
+
+.stat strong{
+
+    font-size:14px;
+}
+
+.stat small{
+
+    display:block;
+
+    margin-top:4px;
+
+    color:#7f88a6;
+
+    font-size:8px;
+
+    text-transform:uppercase;
+
+    letter-spacing:.7px;
+}
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.section{
+
+    margin-bottom:22px;
+
+    overflow:hidden;
+
+    border:
+        1px solid #202f58;
+
+    border-radius:24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(9,15,36,.95),
+            rgba(8,9,27,.97)
+        );
+
+    box-shadow:var(--shadow);
+}
+
+.section-body{
+
+    padding:28px;
+}
+
+.section-label{
+
+    color:#9e83ff;
+
+    font:
+        10px
+        "JetBrains Mono",
+        monospace;
+
+    letter-spacing:.5px;
+}
+
+h2{
+
+    margin:
+        8px 0 11px;
+
+    font-size:29px;
+
+    line-height:1.1;
+
+    letter-spacing:-1px;
+}
+
+h2 span{
+    color:#63cfff;
+}
+
+.copy{
+
+    color:#aaa6bd;
+
+    font-size:12px;
+
+    line-height:1.9;
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        1.25fr
+        .95fr;
+
+    gap:25px;
+}
+
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:10px;
+}
+
+.mini{
+
+    min-height:90px;
+
+    padding:16px;
+
+    border:
+        1px solid #23345e;
+
+    border-radius:14px;
+
+    background:#0c1230;
+
+    transition:.2s;
+}
+
+.mini:hover{
+
+    transform:
+        translateY(-3px);
+
+    border-color:#51418f;
+
+    background:#10163a;
+}
+
+.mini strong{
+
+    display:block;
+
+    margin-bottom:7px;
+
+    font-size:13px;
+}
+
+.mini small{
+
+    color:#777f9f;
+
+    font-size:10px;
+
+    line-height:1.6;
+}
+
+
+/* =========================================================
+   TECH STACK
+========================================================= */
+
+.stack-grid{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:8px;
+
+    margin-top:18px;
+}
+
+.chip{
+
+    padding:
+        9px 13px;
+
+    border:
+        1px solid #213866;
+
+    border-radius:10px;
+
+    background:#0d1533;
+
+    color:#b8c8e9;
+
+    font-size:10px;
+
+    transition:.2s;
+}
+
+.chip:hover{
+
+    border-color:#5947a0;
+
+    transform:
+        translateY(-2px);
+}
+
+.chip b{
+
+    margin-right:6px;
+
+    color:#a98cff;
+}
+
+
+/* =========================================================
+   EXPERIENCE TIMELINE
+========================================================= */
+
+.timeline{
+
+    position:relative;
+
+    margin-top:22px;
+
+    padding-left:25px;
+}
+
+.timeline::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:4px;
+    bottom:4px;
+
+    left:6px;
+
+    width:1px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #8d70ff,
+            #28234c,
+            transparent
+        );
+}
+
+.timeline-item{
+
+    position:relative;
+
+    margin-bottom:24px;
+}
+
+.timeline-item:last-child{
+    margin-bottom:0;
+}
+
+.timeline-item::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:-23px;
+
+    top:5px;
+
+    width:8px;
+    height:8px;
+
+    border-radius:50%;
+
+    background:#9b7bff;
+
+    box-shadow:
+        0 0 15px
+        rgba(155,123,255,.7);
+}
+
+.timeline-date{
+
+    color:#8f7ce0;
+
+    font:
+        10px
+        "JetBrains Mono",
+        monospace;
+}
+
+.timeline-title{
+
+    margin-top:5px;
+
+    font-size:14px;
+
+    font-weight:700;
+}
+
+.timeline-company{
+
+    margin-top:4px;
+
+    color:#62cfff;
+
+    font-size:11px;
+}
+
+.timeline-desc{
+
+    margin-top:8px;
+
+    color:#8f89a7;
+
+    font-size:11px;
+
+    line-height:1.7;
+}
+
+
+/* =========================================================
+   PROFILE DETAIL GRID
+========================================================= */
+
+.profile-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:12px;
+
+    margin-top:20px;
+}
+
+.info-card{
+
+    padding:17px;
+
+    border:
+        1px solid #25345b;
+
+    border-radius:15px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #101632,
+            #0b1026
+        );
+}
+
+.info-icon{
+
+    width:35px;
+    height:35px;
+
+    display:grid;
+    place-items:center;
+
+    margin-bottom:11px;
+
+    border-radius:11px;
+
+    background:#171642;
+
+    color:#a98dff;
+
+    font-size:15px;
+}
+
+.info-card label{
+
+    display:block;
+
+    margin-bottom:5px;
+
+    color:#706a88;
+
+    font-size:9px;
+
+    text-transform:uppercase;
+
+    letter-spacing:.7px;
+}
+
+.info-card strong{
+
+    color:#e8e3fa;
+
+    font-size:12px;
+
+    font-weight:600;
+
+    line-height:1.5;
+}
+
+
+/* =========================================================
+   HOBBIES
+========================================================= */
+
+.hobbies{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:10px;
+
+    margin-top:20px;
+}
+
+.hobby{
+
+    padding:16px 12px;
+
+    text-align:center;
+
+    border:
+        1px solid #27355c;
+
+    border-radius:15px;
+
+    background:#0d122d;
+
+    transition:.2s;
+}
+
+.hobby:hover{
+
+    transform:
+        translateY(-3px);
+
+    border-color:#554394;
+}
+
+.hobby-icon{
+
+    display:block;
+
+    margin-bottom:9px;
+
+    font-size:20px;
+
+    color:#a68cff;
+}
+
+.hobby span{
+
+    color:#a9a2bc;
+
+    font-size:10px;
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr
+        1fr;
+
+    gap:12px;
+
+    margin-top:20px;
+}
+
+.contact-card{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:13px;
+
+    padding:16px;
+
+    border:
+        1px solid #25345b;
+
+    border-radius:15px;
+
+    background:#0d122d;
+
+    transition:.2s;
+}
+
+.contact-card:hover{
+
+    border-color:#5846a0;
+
+    transform:
+        translateY(-2px);
+}
+
+.contact-icon{
+
+    width:42px;
+    height:42px;
+
+    flex:none;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:12px;
+
+    background:#171640;
+
+    color:#a98cff;
+
+    font-size:17px;
+}
+
+.contact-card small{
+
+    display:block;
+
+    margin-bottom:4px;
+
+    color:#706b87;
+
+    font-size:9px;
+
+    text-transform:uppercase;
+}
+
+.contact-card strong{
+
+    color:#e9e4f9;
+
+    font-size:11px;
+
+    word-break:break-word;
+}
+
+
+/* =========================================================
+   ADDRESS BOX
+========================================================= */
+
+.address-box{
+
+    margin-top:12px;
+
+    padding:18px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    border:
+        1px solid #2a3961;
+
+    border-radius:16px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(39,29,78,.5),
+            rgba(13,18,45,.8)
+        );
+}
+
+.address-icon{
+
+    width:45px;
+    height:45px;
+
+    flex:none;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:13px;
+
+    background:#171640;
+
+    color:#a98cff;
+
+    font-size:18px;
+}
+
+.address-box small{
+
+    display:block;
+
+    margin-bottom:5px;
+
+    color:#77718b;
+
+    font-size:9px;
+
+    text-transform:uppercase;
+}
+
+.address-box strong{
+
+    color:#ddd7ef;
+
+    font-size:12px;
+
+    font-weight:500;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+
+    padding:
+        10px 5px 30px;
+
+    text-align:center;
+
+    color:#625d75;
+
+    font:
+        9px
+        "JetBrains Mono",
+        monospace;
+}
+
+
+/* =========================================================
+   RESPONSIVE 1050
+========================================================= */
+
+@media(max-width:1050px){
+
+    .layout{
+
+        grid-template-columns:
+            220px
+            minmax(0,1fr);
+    }
+
+    .hero{
+
+        padding:30px;
+    }
+
+    .stats{
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .stat:nth-child(2){
+
+        border-right:0;
+    }
+
+    .stat{
+
+        border-bottom:
+            1px solid #20304f;
+    }
+
+    .about-grid{
+
+        grid-template-columns:1fr;
+    }
+
+    .hobbies{
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:800px){
+
+    .layout{
+
+        display:block;
+
+        padding:13px;
+    }
+
+    .sidebar{
+
+        position:relative;
+
+        top:auto;
+
+        height:auto;
+
+        min-height:0;
+
+        margin-bottom:15px;
+    }
+
+    .connect{
+
+        margin-top:18px;
+    }
+
+    nav{
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .profile-box{
+
+        padding:11px;
+    }
+
+    .avatar-wrap{
+
+        height:150px;
+    }
+
+    .hero{
+
+        grid-template-columns:1fr;
+
+        padding:
+            30px 22px;
+    }
+
+    .visual{
+
+        display:none;
+    }
+
+    .stats{
+
+        margin:
+            0 15px
+            15px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:600px){
+
+    body{
+
+        background:
+            radial-gradient(
+                circle at 50% 0%,
+                rgba(117,75,255,.15),
+                transparent 30%
+            ),
+
+            #080713;
+    }
+
+    .layout{
+
+        padding:9px;
+    }
+
+    .sidebar{
+
+        padding:10px;
+
+        border-radius:22px;
+    }
+
+    .avatar-wrap{
+
+        height:145px;
+    }
+
+    .avatar{
+
+        width:88px;
+        height:88px;
+    }
+
+    .avatar-wrap::before{
+
+        width:135px;
+        height:135px;
+    }
+
+    .name{
+
+        font-size:17px;
+    }
+
+    nav{
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    nav a{
+
+        padding:
+            10px 8px;
+
+        font-size:11px;
+    }
+
+    .connect-title{
+
+        margin-top:4px;
+    }
+
+    .terminal{
+
+        border-radius:20px;
+    }
+
+    .terminal-top,
+    .section-head{
+
+        height:39px;
+
+        padding:
+            0 12px;
+
+        font-size:8px;
+    }
+
+    .path{
+
+        margin-left:13px;
+    }
+
+    .hero{
+
+        padding:
+            25px 17px;
+    }
+
+    h1{
+
+        font-size:42px;
+
+        letter-spacing:-2px;
+    }
+
+    .hero p{
+
+        font-size:12px;
+    }
+
+    .buttons{
+
+        flex-direction:column;
+    }
+
+    .btn{
+
+        width:100%;
+
+        text-align:center;
+    }
+
+    .stats{
+
+        grid-template-columns:
+            1fr 1fr;
+
+        margin:
+            0 10px
+            10px;
+    }
+
+    .stat{
+
+        padding:12px;
+
+        gap:8px;
+    }
+
+    .stat-icon{
+
+        width:30px;
+        height:30px;
+    }
+
+    .stat strong{
+
+        font-size:11px;
+    }
+
+    .section{
+
+        border-radius:20px;
+    }
+
+    .section-body{
+
+        padding:21px 17px;
+    }
+
+    h2{
+
+        font-size:25px;
+    }
+
+    .cards{
+
+        grid-template-columns:1fr;
+    }
+
+    .profile-grid{
+
+        grid-template-columns:1fr;
+    }
+
+    .contact-grid{
+
+        grid-template-columns:1fr;
+    }
+
+    .hobbies{
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .address-box{
+
+        align-items:flex-start;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media(max-width:380px){
+
+    nav{
+
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+
+        grid-template-columns:1fr;
+    }
+
+    .stat{
+
+        border-right:0;
+    }
+
+    h1{
+
+        font-size:37px;
+    }
+
+    .hobbies{
+
+        grid-template-columns:1fr;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="layout">
+
+
+<!-- =====================================================
+     SIDEBAR
+===================================================== -->
+
+<aside class="sidebar">
+
+    <div class="profile-box">
+
+        <div class="avatar-wrap">
+
+            <div class="avatar">
+
+                <!--
+                    Put your actual photo here:
+                    assets/profile.jpg
+                -->
+
+                <img
+                    src="assets/profile.jpg"
+                    alt="Anshika Tiwari"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+                >
+
+                <span
+                    class="avatar-fallback"
+                    style="display:none;"
+                >
+                    AT
+                </span>
+
+            </div>
+
+            <div class="dev-tag">
+                DEV // 01
+            </div>
+
+        </div>
+
+
+        <div class="name">
+            Anshika Tiwari
+        </div>
+
+        <div class="role">
+            Full Stack Laravel / Fintech Developer
+            <br>
+            API Integration · React.js
+        </div>
+
+        <div class="location">
+
+            <b>●</b>
+
+            Noida, India / IST
+
+        </div>
+
+    </div>
+
+
+    <div class="divider"></div>
+
+
+    <!-- NAVIGATION -->
+
+    <nav>
+
+        <a class="active" href="#overview">
+            <span class="nav-icon">⌂</span>
+            Overview
+        </a>
+
+        <a href="#about">
+            <span class="nav-icon">♙</span>
+            About
+        </a>
+
+        <a href="#stack">
+            <span class="nav-icon">&lt;/&gt;</span>
+            Tech Stack
+        </a>
+
+        <a href="#work">
+            <span class="nav-icon">▰</span>
+            Selected Work
+        </a>
+
+        <a href="#experience">
+            <span class="nav-icon">⌘</span>
+            Experience
+        </a>
+
+        <a href="#profile">
+            <span class="nav-icon">◆</span>
+            Profile
+        </a>
+
+        <a href="#hobbies">
+            <span class="nav-icon">✦</span>
+            Hobbies
+        </a>
+
+        <a href="#contact">
+            <span class="nav-icon">➤</span>
+            Contact
+        </a>
+
+    </nav>
+
+
+    <!-- CONNECT -->
+
+    <div class="connect">
+
+        <div class="connect-title">
+            Connect
+        </div>
+
+        <div class="socials">
+
+            <a
+                class="social"
+                href="tiwarianshika1107@gmail.com"
+                title="Email"
+            >
+                @
+            </a>
+
+            <a
+                class="social"
+                href="https://www.linkedin.com/"
+                target="_blank"
+                title="LinkedIn"
+            >
+                in
+            </a>
+
+            <a
+                class="social"
+                href="#contact"
+                title="Contact"
+            >
+                ☎
+            </a>
+
+            <a
+                class="social"
+                href="#profile"
+                title="Profile"
+            >
+                ◉
+            </a>
+
+        </div>
+
+        <div class="available">
+
+            <span class="dot"></span>
+
+            Available for work
+
+        </div>
+
+    </div>
+
+</aside>
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main>
+
+
+<!-- =====================================================
+     OVERVIEW
+===================================================== -->
+
+<section
+    class="terminal"
+    id="overview"
+>
+
+    <div class="terminal-top">
+
+        <i class="traffic"></i>
+        <i class="traffic y"></i>
+        <i class="traffic g"></i>
+
+        <span class="path">
+            ~/portfolio/overview.html
+        </span>
+
+        <span style="margin-left:auto">
+            01
+        </span>
+
+    </div>
+
+
+    <div class="hero">
+
+        <div>
+
+            <div class="eyebrow">
+                $ whoami → full-stack / fintech / api
+            </div>
+
+
+            <h1>
+
+                I build software that
+
+                <span>
+                    actually ships.
+                </span>
+
+            </h1>
+
+
+            <p>
+                Full Stack Laravel developer focused on
+                fintech, payment workflows, API integrations,
+                dashboards and production-ready web systems.
+            </p>
+
+
+            <div class="buttons">
+
+                <a
+                    class="btn"
+                    href="#work"
+                >
+                    ↗ Explore my work
+                </a>
+
+                <a
+                    class="btn alt"
+                    href="assets/Anshika-Tiwari-Resume.pdf"
+                    download
+                >
+                    ▣ Download Resume
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="visual">
+
+            <div class="orb"></div>
+
+            <div class="laptop">
+
+                <div class="screen-code">
+
+                    <b>const</b>
+                    developer = {<br>
+
+                    &nbsp;&nbsp;name:
+                    <i>"Anshika"</i>,<br>
+
+                    &nbsp;&nbsp;stack:
+                    <i>"Laravel"</i>,<br>
+
+                    &nbsp;&nbsp;focus:
+                    <i>"Fintech"</i>,<br>
+
+                    &nbsp;&nbsp;ship:
+                    <i>true</i><br>
+
+                    }
+
+                </div>
+
+                <div class="base"></div>
+
+            </div>
+
+
+            <div class="float f1">
+                LARAVEL
+            </div>
+
+            <div class="float f2">
+                REST API
+            </div>
+
+            <div class="float f3">
+                REACT
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- STATS -->
+
+    <div class="stats">
+
+        <div class="stat">
+
+            <div class="stat-icon">
+                ◷
+            </div>
+
+            <div>
+                <strong>
+                    1.5+ yrs
+                </strong>
+
+                <small>
+                    Experience
+                </small>
+            </div>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-icon">
+                ☁
+            </div>
+
+            <div>
+                <strong>
+                    REST / API
+                </strong>
+
+                <small>
+                    Integrations
+                </small>
+            </div>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-icon">
+                ▤
+            </div>
+
+            <div>
+                <strong>
+                    Fintech
+                </strong>
+
+                <small>
+                    Payments / Banking
+                </small>
+            </div>
+
+        </div>
+
+
+        <!-- <div class="stat">
+
+            <div class="stat-icon">
+                ↗
+            </div>
+
+            <div>
+                <strong>
+                    Production
+                </strong>
+
+                <small>
+                    Deploy / Support
+                </small>
+            </div>
+
+        </div> -->
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<section
+    class="section"
+    id="about"
+>
+
+    <div class="section-head">
+
+        <i class="traffic"></i>
+        <i class="traffic y"></i>
+        <i class="traffic g"></i>
+
+        <span class="path">
+            ~/portfolio/about.md
+        </span>
+
+        <span style="margin-left:auto">
+            02
+        </span>
+
+    </div>
+
+
+    <div class="section-body">
+
+        <div class="about-grid">
+
+            <div>
+
+                <div class="section-label">
+                    01 / ABOUT / PROFILE
+                </div>
+
+                <h2>
+                    Developer first.
+                    <br>
+                    <span>
+                        Product thinker too.
+                    </span>
+                </h2>
+
+                <p class="copy">
+
+                    I am a Full Stack Laravel developer
+                    working on backend-heavy web products,
+                    fintech workflows, API integrations,
+                    transaction systems and operational
+                    dashboards.
+
+                    <br><br>
+
+                    My development approach focuses on
+                    clean business logic, reliable database
+                    operations, secure APIs, practical UI
+                    and production-ready implementation.
+
+                </p>
+
+            </div>
+
+
+            <div class="cards">
+
+                <div class="mini">
+
+                    <strong>
+                        1.5+ Years
+                    </strong>
+
+                    <small>
+                        Professional development experience
+                    </small>
+
+                </div>
+
+
+                <div class="mini">
+
+                    <strong>
+                        Noida
+                    </strong>
+
+                    <small>
+                        India / IST
+                    </small>
+
+                </div>
+
+
+                <div class="mini">
+
+                    <strong>
+                        BSc
+                    </strong>
+
+                    <small>
+                        Education
+                    </small>
+
+                </div>
+
+
+                <div class="mini">
+
+                    <strong>
+                        Fintech + Travel
+                    </strong>
+
+                    <small>
+                        Core domains
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     TECH STACK
+===================================================== -->
+
+<section
+    class="section"
+    id="stack"
+>
+
+    <div class="section-head">
+
+        <i class="traffic"></i>
+        <i class="traffic y"></i>
+        <i class="traffic g"></i>
+
+        <span class="path">
+            ~/portfolio/stack.lock
+        </span>
+
+        <span style="margin-left:auto">
+            03
+        </span>
+
+    </div>
+
+
+    <div class="section-body">
+
+        <div class="section-label">
+            02 / TECH STACK
+        </div>
+
+        <h2>
+            My day-to-day stack.
+        </h2>
+
+        <p class="copy">
+            Technologies I use to build, integrate,
+            debug and deploy production web systems.
+        </p>
+
+
+        <div class="stack-grid">
+
+            <span class="chip">
+                <b>◆</b>
+                Laravel
+            </span>
+
+            <span class="chip">
+                <b>●</b>
+                PHP
+            </span>
+
+            <span class="chip">
+                <b>⚛</b>
+                React.js
+            </span>
+
+            <span class="chip">
+                <b>JS</b>
+                JavaScript
+            </span>
+
+            <span class="chip">
+                <b>⌁</b>
+                MySQL
+            </span>
+
+            <span class="chip">
+                <b>↔</b>
+                REST APIs
+            </span>
+
+            <span class="chip">
+                <b>✦</b>
+                JWT & Auth
+            </span>
+
+            <span class="chip">
+                <b>⌘</b>
+                Webhooks
+            </span>
+
+            <span class="chip">
+                <b>◉</b>
+                Git / GitHub
+            </span>
+
+            <span class="chip">
+                <b>✚</b>
+                Composer
+            </span>
+
+            <span class="chip">
+                <b>●</b>
+                Postman
+            </span>
+
+            <!-- <span class="chip">
+                <b>◆</b>
+                Linux
+            </span>
+
+            <span class="chip">
+                <b>▣</b>
+                Nginx
+            </span> -->
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     WORK
+===================================================== -->
+
+<section
+    class="section"
+    id="work"
+>
+
+    <div class="section-head">
+
+        <i class="traffic"></i>
+        <i class="traffic y"></i>
+        <i class="traffic g"></i>
+
+        <span class="path">
+            ~/portfolio/projects.json
+        </span>
+
+    </div>
+
+
+    <div class="section-body">
+
+        <div class="section-label">
+            03 / SELECTED WORK
+        </div>
+
+        <h2>
+            Systems, integrations & dashboards.
+        </h2>
+
+
+        <div class="cards">
+
+            <div class="mini">
+
+                <strong>
+                    Fintech & Payment Systems
+                </strong>
+
+                <small>
+                    Wallets, payouts, transaction flows,
+                    ledgers, BBPS and payment API
+                    integrations.
+                </small>
+
+            </div>
+
+
+            <div class="mini">
+
+                <strong>
+                    Travel Platforms
+                </strong>
+
+                <small>
+                    Hotel, flight and booking workflows
+                    with supplier APIs and normalized
+                    responses.
+                </small>
+
+            </div>
+
+
+            <div class="mini">
+
+                <strong>
+                    Admin & Partner Panels
+                </strong>
+
+                <small>
+                    Role-based dashboards, reports,
+                    fund requests and operational
+                    tooling.
+                </small>
+
+            </div>
+
+
+            <div class="mini">
+
+                <strong>
+                    API Engineering
+                </strong>
+
+                <small>
+                    REST endpoints, validation,
+                    authentication, webhooks and
+                    production debugging.
+                </small>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     EXPERIENCE
+===================================================== -->
+
+<section
+    class="section"
+    id="experience"
+>
+
+    <div class="section-head">
+
+        <i class="traffic"></i>
+        <i class="traffic y"></i>
+        <i class="traffic g"></i>
+
+        <span class="path">
+            ~/portfolio/experience.log
+        </span>
+
+    </div>
+
+
+    <div class="section-body">
+
+        <div class="section-label">
+            04 / EXPERIENCE
+        </div>
+
+        <h2>
+            Building for real business workflows.
+        </h2>
+
+
+        <div class="timeline">
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-date">
+                    CURRENT
+                </div>
+
+                <div class="timeline-title">
+                    Full Stack / Laravel Developer
+                </div>
+
+                <div class="timeline-company">
+                    CodeGraphi Technology Pvt. Ltd.
+                </div>
+
+                <div class="timeline-desc">
+
+                    Developing Laravel/PHP applications,
+                    fintech workflows, payment integrations,
+                    dashboards, APIs, transaction modules
+                    and production fixes.
+
+                </div>
+
+            </div>
+
+<!-- 
+            <div class="timeline-item">
+
+                <div class="timeline-date">
+                    PREVIOUS EXPERIENCE
+                </div>
+
+                <div class="timeline-title">
+                    Web Developer
+                </div>
+
+                <div class="timeline-company">
+                    Zelab
+                </div>
+
+                <div class="timeline-desc">
+
+                    Worked on web application development,
+                    backend workflows, API integration,
+                    database operations and business
+                    functionality.
+
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-date">
+                    EARLIER EXPERIENCE
+                </div>
+
+                <div class="timeline-title">
+                    Web Developer
+                </div>
+
+                <div class="timeline-company">
+                    Alen world .com
+                </div>
+
+                <div class="timeline-desc">
+
+                    Contributed to web development,
+                    application maintenance and
+                    implementation of business features.
+
+                </div>
+
+            </div> -->
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PROFILE
+===================================================== -->
+
+<section
+    class="section"
+    id="profile"
+>
+
+    <div class="section-head">
+
+        <i class="traffic"></i>
+        <i class="traffic y"></i>
+        <i class="traffic g"></i>
+
+        <span class="path">
+            ~/portfolio/profile.yml
+        </span>
+
+    </div>
+
+
+    <div class="section-body">
+
+        <div class="section-label">
+            05 / PROFILE
+        </div>
+
+        <h2>
+            A little more about me.
+        </h2>
+
+        <p class="copy">
+
+            A developer who enjoys turning business
+            requirements into practical, maintainable
+            software. I like working on systems where
+            backend logic, APIs, databases and user
+            experience all need to work together.
+
+        </p>
+
+
+        <div class="profile-grid">
+
+
+            <div class="info-card">
+
+                <div class="info-icon">
+                    🎓
+                </div>
+
+                <label>
+                    Education
+                </label>
+
+                <strong>
+                    Bachelor of Science (BSc)
+                </strong>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="info-icon">
+                    📍
+                </div>
+
+                <label>
+                    Location
+                </label>
+
+                <strong>
+                    Noida, Uttar Pradesh, India
+                </strong>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="info-icon">
+                    💻
+                </div>
+
+                <label>
+                    Primary Role
+                </label>
+
+                <strong>
+                    Full Stack Laravel Developer
+                </strong>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="info-icon">
+                    ⚡
+                </div>
+
+                <label>
+                    Specialization
+                </label>
+
+                <strong>
+                    Fintech, APIs & Transaction Systems
+                </strong>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="info-icon">
+                    🧩
+                </div>
+
+                <label>
+                    Development
+                </label>
+
+                <strong>
+                    Laravel · PHP · React.js · MySQL
+                </strong>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="info-icon">
+                    🌐
+                </div>
+
+                <label>
+                    Working Style
+                </label>
+
+                <strong>
+                    Remote / Hybrid / On-site
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <!-- ADDRESS -->
+
+        <div class="address-box">
+
+            <div class="address-icon">
+                📍
+            </div>
+
+            <div>
+
+                <small>
+                    Address / Base Location
+                </small>
+
+                <strong>
+                    Noida, Uttar Pradesh, India
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     HOBBIES
+===================================================== -->
+
+<section
+    class="section"
+    id="hobbies"
+>
+
+    <div class="section-head">
+
+        <i class="traffic"></i>
+        <i class="traffic y"></i>
+        <i class="traffic g"></i>
+
+        <span class="path">
+            ~/portfolio/interests.md
+        </span>
+
+    </div>
+
+
+    <div class="section-body">
+
+        <div class="section-label">
+            06 / HOBBIES & INTERESTS
+        </div>
+
+        <h2>
+            Beyond the code.
+        </h2>
+
+        <p class="copy">
+            A few things that fit naturally around my
+            professional and creative interests.
+        </p>
+
+
+        <div class="hobbies">
+
+
+            <div class="hobby">
+
+                <span class="hobby-icon">
+                    💻
+                </span>
+
+                <span>
+                    Coding & Side Projects
+                </span>
+
+            </div>
+
+
+            <div class="hobby">
+
+                <span class="hobby-icon">
+                    🎨
+                </span>
+
+                <span>
+                    UI & Design Exploration
+                </span>
+
+            </div>
+
+
+            <div class="hobby">
+
+                <span class="hobby-icon">
+                    📚
+                </span>
+
+                <span>
+                    Learning New Technology
+                </span>
+
+            </div>
+
+
+            <div class="hobby">
+
+                <span class="hobby-icon">
+                    🎵
+                </span>
+
+                <span>
+                    Music & Relaxation & poetry
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+
+<section
+    class="section"
+    id="contact"
+>
+
+    <div class="section-head">
+
+        <i class="traffic"></i>
+        <i class="traffic y"></i>
+        <i class="traffic g"></i>
+
+        <span class="path">
+            ~/portfolio/contact.sh
+        </span>
+
+    </div>
+
+
+    <div class="section-body">
+
+        <div class="section-label">
+            07 / CONTACT
+        </div>
+
+        <h2>
+            Let's build something useful.
+        </h2>
+
+        <p class="copy">
+
+            Have a project, product idea or development
+            requirement? Feel free to connect.
+
+        </p>
+
+
+        <div class="contact-grid">
+
+
+            <a
+                class="contact-card"
+                href="mailto:tiwarianshika1107@gmail.com"
+            >
+
+                <div class="contact-icon">
+                    @
+                </div>
+
+                <div>
+
+                    <small>
+                        Email
+                    </small>
+
+                    <strong>
+                        tiwarianshika1107@gmail.com
+                    </strong>
+
+                </div>
+
+            </a>
+
+
+            <a
+                class="contact-card"
+                href="tel:+919999999999"
+            >
+
+                <div class="contact-icon">
+                    ☎
+                </div>
+
+                <div>
+
+                    <small>
+                        Phone
+                    </small>
+
+                    <strong>
+                        +91 XXXXX XXXXX
+                    </strong>
+
+                </div>
+
+            </a>
+
+
+            <a
+                class="contact-card"
+                href="https://www.linkedin.com/in/anshikatiwari9?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                target="_blank"
+            >
+
+                <div class="contact-icon">
+                    in
+                </div>
+
+                <div>
+
+                    <small>
+                        LinkedIn
+                    </small>
+
+                    <strong>
+                        Connect on LinkedIn
+                    </strong>
+
+                </div>
+
+            </a>
+
+
+            <div class="contact-card">
+
+                <div class="contact-icon">
+                    ◉
+                </div>
+
+                <div>
+
+                    <small>
+                        Availability
+                    </small>
+
+                    <strong>
+                        Open to opportunities
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ADDRESS -->
+
+        <div class="address-box">
+
+            <div class="address-icon">
+                📍
+            </div>
+
+            <div>
+
+                <small>
+                    Current Location
+                </small>
+
+                <strong>
+                    Noida, Uttar Pradesh, India · IST
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<footer>
+
+    © 2026 Anshika Tiwari · Full Stack Laravel Developer
+
+</footer>
+
+
+</main>
+
+</div>
+
+
+
+<script>
+
+/* =========================================================
+   ACTIVE NAVIGATION
+========================================================= */
+
+const links = [
+    ...document.querySelectorAll("nav a")
+];
+
+const sections = [
+    ...document.querySelectorAll(
+        "main section[id]"
+    )
+];
+
+
+const observer =
+new IntersectionObserver(
+
+    entries => {
+
+        entries.forEach(entry => {
+
+            if(entry.isIntersecting){
+
+                links.forEach(link => {
+
+                    link.classList.toggle(
+                        "active",
+
+                        link.getAttribute("href")
+                        ===
+                        "#" + entry.target.id
+                    );
+
+                });
+
+            }
+
+        });
+
+    },
+
+    {
+        rootMargin:
+            "-30% 0px -60% 0px",
+
+        threshold:0
+    }
+
+);
+
+
+sections.forEach(
+    section =>
+    observer.observe(section)
+);
+
+
+/* =========================================================
+   SMOOTH MOBILE NAV SCROLL
+========================================================= */
+
+links.forEach(link => {
+
+    link.addEventListener(
+        "click",
+        () => {
+
+            const target =
+                document.querySelector(
+                    link.getAttribute("href")
+                );
+
+            if(target){
+
+                setTimeout(() => {
+
+                    target.scrollIntoView({
+                        behavior:"smooth",
+                        block:"start"
+                    });
+
+                },20);
+
+            }
+
+        }
+    );
+
+});
+
+</script>
+
+</body>
+</html>
